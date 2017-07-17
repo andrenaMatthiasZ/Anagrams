@@ -14,19 +14,25 @@ namespace Anagrams.Util.Tests
         [TestMethod()]
         public void CaseIsIgnored()
         {
-            Assert.AreEqual("a".CalculateAnagramKey(),"A".CalculateAnagramKey());
+            Assert.AreEqual("a","A".CalculateAnagramKey());
         }
 
         [TestMethod()]
         public void SpaceIsIgnored()
         {
-            Assert.AreEqual("a".CalculateAnagramKey(), " a ".CalculateAnagramKey());
+            Assert.AreEqual("a", " a ".CalculateAnagramKey());
         }
 
         [TestMethod()]
         public void OrderOfCharsIsIgnored()
         {
-            Assert.AreEqual("ab".CalculateAnagramKey(), "ba".CalculateAnagramKey());
+            Assert.AreEqual("ab", "ba".CalculateAnagramKey());
+        }
+
+        [TestMethod()]
+        public void NumberOfCharactersIsRelevant()
+        {
+            Assert.AreNotEqual("a", "aa".CalculateAnagramKey());
         }
 
 
