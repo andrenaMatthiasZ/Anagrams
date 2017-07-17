@@ -48,7 +48,12 @@ namespace Anagrams.Util.Tests
             Assert.AreEqual("aa", "a'a".CalculateAnagramKey());
         }
 
-
+        [TestMethod()]
+        public void SpecialLettersAreCountedAsNormalOnes()
+        {
+            // These are the special letters used in http://codekata.com/data/wordlist.txt.
+            Assert.AreEqual("aaeoou", "åÅéöÖÜ".CalculateAnagramKey());
+        }
 
 
     }
