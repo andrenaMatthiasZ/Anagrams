@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Anagrams
 {
-    class AnagramContainer
+    public class AnagramContainer
     {
         public void Add(string str)
         {
-
+            
         }
 
         public override string ToString()
