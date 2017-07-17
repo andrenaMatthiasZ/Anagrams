@@ -16,5 +16,12 @@ namespace Anagrams.Util.Tests
         {
             Assert.AreEqual("a".CalculateAnagramKey(),"A".CalculateAnagramKey());
         }
+
+        [TestMethod()]
+        public void SpaceIsIgnored()
+        {
+            Assert.AreEqual("a".CalculateAnagramKey(), " a ".CalculateAnagramKey());
+        }
+
     }
 }
