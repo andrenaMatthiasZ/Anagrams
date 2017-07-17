@@ -15,7 +15,7 @@ namespace Anagrams.Util
             Char[] characters = trimmedLowerCaseString.ToCharArray();
             Array.Sort(characters);
 
-            return new String(characters);
+            return new String(characters).Trim();
         }
     }
 }
