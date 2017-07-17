@@ -42,6 +42,13 @@ namespace Anagrams.Util.Tests
             Assert.AreNotEqual("a", "aa".CalculateAnagramKey());
         }
 
+        [TestMethod()]
+        public void ApostrophGetsDeleted()
+        {
+            Assert.AreEqual("aa", "a'a".CalculateAnagramKey());
+        }
+
+
 
 
     }
