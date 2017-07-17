@@ -14,7 +14,7 @@ namespace Anagrams.Util.Tests
         [TestMethod()]
         public void CaseIsIgnored()
         {
-            Assert.Equals("a".CalculateAnagramKey(), "A".CalculateAnagramKey());
+            Assert.AreEqual("a".CalculateAnagramKey(),"A".CalculateAnagramKey());
         }
     }
 }

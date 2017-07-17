@@ -10,7 +10,7 @@ namespace Anagrams.Util
     {
         public static String CalculateAnagramKey(this String str)
         {
-            return str;
+            return str.ToLower();
         }
     }
 }
