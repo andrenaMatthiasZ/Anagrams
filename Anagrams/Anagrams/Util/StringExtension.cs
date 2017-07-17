@@ -8,13 +8,29 @@ namespace Anagrams.Util
 {
     public static class StringExtension
     {
-        public static String CalculateAnagramKey(this String str)
+        public static string CalculateAnagramKey(this string str)
         {
-            str = str.Replace("'","");
+            str = ReplaceOrRemoveUnwantedCharacters(str);
+
+            string sortedString = SortString(str);
+
+            return sortedString;
+        }
+
+        private static string SortString(string str)
+        {
             Char[] characters = str.ToCharArray();
             Array.Sort(characters);
 
-            return new String(characters).Trim().ToLower();
+            return new String(characters);
+        }
+
+        private static string ReplaceOrRemoveUnwantedCharacters(string str)
+        {   str = str.ToLower();
+            str = str.Replace(" ", "");
+            str = str.Replace("'", "");
+
+            return str;
         }
     }
 }
