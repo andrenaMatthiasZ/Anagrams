@@ -18,10 +18,17 @@ namespace Anagrams.Util.Tests
         }
 
         [TestMethod()]
-        public void SpaceIsIgnored()
+        public void OuterSpaceIsIgnored()
         {
             Assert.AreEqual("a", " a ".CalculateAnagramKey());
         }
+
+        [TestMethod()]
+        public void InnerSpaceIsIgnored()
+        {
+            Assert.AreEqual("ab", "a b".CalculateAnagramKey());
+        }
+
 
         [TestMethod()]
         public void OrderOfCharsIsIgnored()
