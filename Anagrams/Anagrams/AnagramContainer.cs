@@ -8,5 +8,14 @@ namespace Anagrams
 {
     class AnagramContainer
     {
+        public void Add(string str)
+        {
+
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }
