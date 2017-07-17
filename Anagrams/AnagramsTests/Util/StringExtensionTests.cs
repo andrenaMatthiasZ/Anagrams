@@ -23,5 +23,13 @@ namespace Anagrams.Util.Tests
             Assert.AreEqual("a".CalculateAnagramKey(), " a ".CalculateAnagramKey());
         }
 
+        [TestMethod()]
+        public void OrderOfCharsIsIgnored()
+        {
+            Assert.AreEqual("ab".CalculateAnagramKey(), "ba".CalculateAnagramKey());
+        }
+
+
+
     }
 }

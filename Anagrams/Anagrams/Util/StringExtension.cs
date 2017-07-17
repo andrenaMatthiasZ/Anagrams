@@ -10,7 +10,12 @@ namespace Anagrams.Util
     {
         public static String CalculateAnagramKey(this String str)
         {
-            return str.ToLower();
+            String trimmedLowerCaseString = str.Trim().ToLower();
+
+            Char[] characters = trimmedLowerCaseString.ToCharArray();
+            Array.Sort(characters);
+
+            return characters.ToString();
         }
     }
 }
