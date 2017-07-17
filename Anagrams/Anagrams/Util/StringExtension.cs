@@ -29,6 +29,13 @@ namespace Anagrams.Util
         {   str = str.ToLower();
             str = str.Replace(" ", "");
             str = str.Replace("'", "");
+            str = str.Replace("Å", "a");
+            str = str.Replace("ö", "o");
+            str = str.Replace("Ö", "o");
+            str = str.Replace("Ü", "u");
+            str = str.Replace("ü", "u");
+            str = str.Replace("å", "a");
+            str = str.Replace("é", "e");
 
             return str;
         }
