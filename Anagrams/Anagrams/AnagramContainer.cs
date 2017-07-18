@@ -10,6 +10,9 @@ namespace Anagrams
 {
     public class AnagramContainer
     {
+        private const string SAME_ANAGRAM_SEPERATOR = ", ";
+        private const string DIFFERENT_ANAGRAM_SEPERATOR = "\n";
+
         Dictionary<String, List<String>> AnagramCollection = new Dictionary<String, List<String>>();
 
             public void Add(string str)
@@ -35,13 +38,13 @@ namespace Anagrams
                 AnagramCollection.TryGetValue(anagramkey, out List<string> anagrams);
                 foreach(string @string in anagrams)
                 {
-                    str += @string + ", "; 
+                    str += @string + SAME_ANAGRAM_SEPERATOR; 
                 }
-                str = str.Substring(0, str.Length - ", ".Length);
-                str += "\n";
+                str = str.Substring(0, str.Length - SAME_ANAGRAM_SEPERATOR.Length);
+                str += DIFFERENT_ANAGRAM_SEPERATOR;
             }
 
-            str = str.Substring(0, str.Length - "\n".Length);
+            str = str.Substring(0, str.Length - DIFFERENT_ANAGRAM_SEPERATOR.Length);
 
             return str;
         }
