@@ -21,5 +21,17 @@ namespace Anagrams.Tests
             Assert.AreEqual("abc", container.ToString());
         }
 
+        [TestMethod()]
+        public void StringsWhichAreAnagramsGetReturnedInSameLine()
+        {
+            AnagramContainer container = new AnagramContainer();
+
+            container.Add("abc");
+            container.Add("acb");
+
+
+            Assert.AreEqual("abc, acb", container.ToString());
+        }
+
     }
 }

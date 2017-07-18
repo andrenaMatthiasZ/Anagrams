@@ -35,12 +35,13 @@ namespace Anagrams
                 AnagramCollection.TryGetValue(anagramkey, out List<string> anagrams);
                 foreach(string @string in anagrams)
                 {
-                    str += @string + " "; 
+                    str += @string + ", "; 
                 }
+                str = str.Substring(0, str.Length - ", ".Length);
                 str += "\n";
             }
 
-            str = str.Substring(0, str.Length - " \n".Length);
+            str = str.Substring(0, str.Length - "\n".Length);
 
             return str;
         }
