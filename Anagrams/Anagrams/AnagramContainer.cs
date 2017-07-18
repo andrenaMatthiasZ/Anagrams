@@ -31,22 +31,44 @@ namespace Anagrams
 
         public override string ToString()
         {
-            string str= "";
+            StringBuilder stringBuilder = new StringBuilder();
 
-            foreach (String anagramkey in AnagramCollection.Keys)
+            AppendAnagrams(stringBuilder);
+
+            return stringBuilder.ToString();
+        }
+
+        private void AppendAnagrams(StringBuilder stringBuilder)
+        {
+            foreach (var anagrams in AnagramCollection.Values)
             {
-                AnagramCollection.TryGetValue(anagramkey, out List<string> anagrams);
-                foreach(string @string in anagrams)
-                {
-                    str += @string + SAME_ANAGRAM_SEPERATOR; 
-                }
-                str = str.Substring(0, str.Length - SAME_ANAGRAM_SEPERATOR.Length);
-                str += DIFFERENT_ANAGRAM_SEPERATOR;
+                AppendLine(stringBuilder, anagrams);
+
+                stringBuilder.Append(DIFFERENT_ANAGRAM_SEPERATOR);
             }
 
-            str = str.Substring(0, str.Length - DIFFERENT_ANAGRAM_SEPERATOR.Length);
+            RemoveLast(stringBuilder, DIFFERENT_ANAGRAM_SEPERATOR.Length);
+        }
 
-            return str;
+        private static void AppendLine(StringBuilder stringBuilder, List<string> anagrams)
+        {
+            foreach (string @string in anagrams)
+            {
+                AppendAnagram(stringBuilder, @string);
+            }
+          
+            RemoveLast(stringBuilder, SAME_ANAGRAM_SEPERATOR.Length);
+        }
+
+        private static void RemoveLast(StringBuilder stringBuilder, int length)
+        {
+            stringBuilder.Remove(stringBuilder.Length - length, length);
+        }
+
+        private static void AppendAnagram(StringBuilder stringBuilder, string @string)
+        {
+            stringBuilder.Append(@string);
+            stringBuilder.Append(SAME_ANAGRAM_SEPERATOR);
         }
     }
 }
