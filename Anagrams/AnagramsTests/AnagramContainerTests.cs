@@ -11,26 +11,32 @@ namespace Anagrams.Tests
     [TestClass()]
     public class AnagramContainerTests
     {
+        private const string DEFAULT_STRING = "abc";
+        private const string ANAGRAM_OF_DEFAULT_STRING = "acb";
+
+        AnagramContainer container;
+
+        [TestInitialize()]
+        public void SetUp()
+        {
+            container = new AnagramContainer();
+        }
+
         [TestMethod()]
         public void AddedStringsGetReturned()
         {
-            AnagramContainer container = new AnagramContainer();
+            container.Add(DEFAULT_STRING);
 
-            container.Add("abc");
-
-            Assert.AreEqual("abc", container.ToString());
+            Assert.AreEqual(DEFAULT_STRING, container.ToString());
         }
 
         [TestMethod()]
         public void StringsWhichAreAnagramsGetReturnedInSameLine()
         {
-            AnagramContainer container = new AnagramContainer();
+            container.Add(DEFAULT_STRING);
+            container.Add(ANAGRAM_OF_DEFAULT_STRING);
 
-            container.Add("abc");
-            container.Add("acb");
-
-
-            Assert.AreEqual("abc, acb", container.ToString());
+            Assert.AreEqual(DEFAULT_STRING+ ", "+ ANAGRAM_OF_DEFAULT_STRING, container.ToString());
         }
 
     }
