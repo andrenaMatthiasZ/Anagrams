@@ -13,9 +13,11 @@ namespace Anagrams.Tests
     {
         private const string DEFAULT_STRING = "abc";
         private const string ANAGRAM_OF_DEFAULT_STRING = "acb";
+        private const string NOT_ANAGRAM_OF_DEFAULT_STRING = "abd";
 
         AnagramContainer container;
 
+    
         [TestInitialize()]
         public void SetUp()
         {
@@ -36,8 +38,16 @@ namespace Anagrams.Tests
             container.Add(DEFAULT_STRING);
             container.Add(ANAGRAM_OF_DEFAULT_STRING);
 
-            Assert.AreEqual(DEFAULT_STRING+ ", "+ ANAGRAM_OF_DEFAULT_STRING, container.ToString());
+            Assert.AreEqual(DEFAULT_STRING + ", " + ANAGRAM_OF_DEFAULT_STRING, container.ToString());
         }
 
+        [TestMethod()]
+        public void StringsWhichAreNotAnagramsGetReturnedInSeperateLine()
+        {
+            container.Add(DEFAULT_STRING);
+            container.Add(NOT_ANAGRAM_OF_DEFAULT_STRING);
+
+            Assert.AreEqual(DEFAULT_STRING + "\n" + NOT_ANAGRAM_OF_DEFAULT_STRING, container.ToString());
+        }
     }
 }
