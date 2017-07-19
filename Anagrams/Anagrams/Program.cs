@@ -11,11 +11,14 @@ namespace Anagrams
     {
         static void Main(string[] args)
         {
+            const string FILE_NAME = "Words.txt";
+            const string SORTED_WORDS_FILE_NAME = "WordsSorted.txt";
+            const string STANDARD_FOR_TEXT_FILE_ENCODING = "iso-8859-1";
             AnagramContainer container = new AnagramContainer();
 
             try
-            {  
-                using (StreamReader streamReader = new StreamReader("Words.txt", Encoding.GetEncoding("iso-8859-1")))
+            {
+                using (StreamReader streamReader = new StreamReader(FILE_NAME, Encoding.GetEncoding(STANDARD_FOR_TEXT_FILE_ENCODING)))
                 {
                     string line;
                     while((line= streamReader.ReadLine())!=null)
@@ -33,6 +36,9 @@ namespace Anagrams
             string message = container.ToString();
 
             Console.WriteLine(message);
+
+            File.WriteAllText(SORTED_WORDS_FILE_NAME, message);
+
             Console.ReadKey();
         }
     }
