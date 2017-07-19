@@ -11,7 +11,7 @@ namespace Anagrams
     public class AnagramContainer
     {
         private const string SAME_ANAGRAM_SEPERATOR = ", ";
-        private const string DIFFERENT_ANAGRAM_SEPERATOR = "\n";
+        private const string DIFFERENT_ANAGRAM_SEPERATOR = "\r\n";
 
         Dictionary<String, List<String>> AnagramCollection = new Dictionary<String, List<String>>();
 

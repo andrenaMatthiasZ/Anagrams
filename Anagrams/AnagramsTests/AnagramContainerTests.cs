@@ -14,6 +14,8 @@ namespace Anagrams.Tests
         private const string DEFAULT_STRING = "abc";
         private const string ANAGRAM_OF_DEFAULT_STRING = "acb";
         private const string NOT_ANAGRAM_OF_DEFAULT_STRING = "abd";
+        private const string SAME_ANAGRAM_SEPERATOR = ", ";
+        private const string DIFFERENT_ANAGRAM_SEPERATOR = "\r\n";
 
         AnagramContainer container;
 
@@ -38,7 +40,7 @@ namespace Anagrams.Tests
             container.Add(DEFAULT_STRING);
             container.Add(ANAGRAM_OF_DEFAULT_STRING);
 
-            Assert.AreEqual(DEFAULT_STRING + ", " + ANAGRAM_OF_DEFAULT_STRING, container.ToString());
+            Assert.AreEqual(DEFAULT_STRING + SAME_ANAGRAM_SEPERATOR + ANAGRAM_OF_DEFAULT_STRING, container.ToString());
         }
 
         [TestMethod()]
@@ -47,7 +49,7 @@ namespace Anagrams.Tests
             container.Add(DEFAULT_STRING);
             container.Add(NOT_ANAGRAM_OF_DEFAULT_STRING);
 
-            Assert.AreEqual(DEFAULT_STRING + "\n" + NOT_ANAGRAM_OF_DEFAULT_STRING, container.ToString());
+            Assert.AreEqual(DEFAULT_STRING + DIFFERENT_ANAGRAM_SEPERATOR + NOT_ANAGRAM_OF_DEFAULT_STRING, container.ToString());
         }
     }
 }
